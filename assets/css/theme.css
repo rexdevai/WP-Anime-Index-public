@@ -1,0 +1,1505 @@
+/* WP Anime Index — global theme controller */
+/* Variables globales — disponibles en todo el sitio */
+html {
+    --wai-bg:#f8f8f8;
+    --wai-surface:#fff;
+    --wai-surface2:#f1f3f5;
+    --wai-header:#1f2532;
+    --wai-header-text:#fff;
+    --wai-header-link:#fff;
+    --wai-header-link-hover:#e63946;
+    --wai-form-label:#1a1a2e;
+    --wai-text:#1a1a2e;
+    --wai-text-muted:#66667a;
+    --wai-heading:#f50000;
+    --wai-link:#1f2532;
+    --wai-link-hover:#e63946;
+    --wai-accent:#e63946;
+    --wai-accent-h:#c1121f;
+    --wai-border:#e2e4e8;
+    --wai-input-bg:#fff;
+    --wai-input-text:#1a1a2e;
+    --wai-gold:#ffd700;
+    --wai-radius:10px;
+    --wai-shadow:0 4px 24px rgba(0,0,0,.12);
+    --wai-transition:.22s cubic-bezier(.4,0,.2,1);
+}
+
+/* Solo aplica background/color en páginas del plugin */
+body.wai-theme-enabled {
+    background-color:var(--wai-bg) !important;
+    color:var(--wai-text) !important;
+}
+
+body.wai-theme-enabled,
+body.wai-theme-enabled button,
+body.wai-theme-enabled input,
+body.wai-theme-enabled select,
+body.wai-theme-enabled textarea {
+    transition:background-color var(--wai-transition),color var(--wai-transition),border-color var(--wai-transition);
+}
+
+/* Astra / WordPress structural surfaces */
+body.wai-theme-enabled .site,
+body.wai-theme-enabled #page,
+body.wai-theme-enabled .site-content,
+body.wai-theme-enabled .site-main,
+body.wai-theme-enabled .content-area,
+body.wai-theme-enabled .widget-area,
+body.wai-theme-enabled .ast-container,
+body.wai-theme-enabled .ast-container-fluid {
+    color:var(--wai-text);
+}
+
+body.wai-theme-enabled .site-header,
+body.wai-theme-enabled .ast-primary-header-bar,
+body.wai-theme-enabled .ast-main-header-bar-alignment,
+body.wai-theme-enabled .main-header-bar,
+body.wai-theme-enabled .ast-builder-menu-1,
+body.wai-theme-enabled .ast-builder-menu-2 {
+    background-color:var(--wai-header) !important;
+    color:var(--wai-header-text) !important;
+}
+
+body.wai-theme-enabled .site-footer,
+body.wai-theme-enabled .ast-footer-overlay,
+body.wai-theme-enabled .ast-small-footer {
+    background-color:var(--wai-header) !important;
+    color:var(--wai-header-text) !important;
+}
+
+/* Header/footer dropdown submenus must use the same surface as the parent menu. */
+body.wai-theme-enabled .main-header-menu .sub-menu,
+body.wai-theme-enabled .ast-builder-menu .sub-menu,
+body.wai-theme-enabled .ast-builder-menu-1 .sub-menu,
+body.wai-theme-enabled .ast-builder-menu-2 .sub-menu,
+body.wai-theme-enabled .ast-desktop .main-header-menu .sub-menu,
+body.wai-theme-enabled .site-header .sub-menu,
+body.wai-theme-enabled .site-footer .sub-menu {
+    background-color:var(--wai-header) !important;
+    color:var(--wai-header-text) !important;
+}
+
+body.wai-theme-enabled .main-header-menu .sub-menu a,
+body.wai-theme-enabled .ast-builder-menu .sub-menu a,
+body.wai-theme-enabled .site-header .sub-menu a,
+body.wai-theme-enabled .site-footer .sub-menu a {
+    background-color:transparent !important;
+    color:var(--wai-header-link) !important;
+}
+
+body.wai-theme-enabled .main-header-menu .sub-menu a:hover,
+body.wai-theme-enabled .main-header-menu .sub-menu a:focus,
+body.wai-theme-enabled .ast-builder-menu .sub-menu a:hover,
+body.wai-theme-enabled .ast-builder-menu .sub-menu a:focus,
+body.wai-theme-enabled .site-header .sub-menu a:hover,
+body.wai-theme-enabled .site-header .sub-menu a:focus,
+body.wai-theme-enabled .site-footer .sub-menu a:hover,
+body.wai-theme-enabled .site-footer .sub-menu a:focus {
+    background-color:var(--wai-surface2) !important;
+    color:var(--wai-header-link-hover) !important;
+}
+
+body.wai-theme-enabled .main-header-menu .sub-menu .current-menu-item > a,
+body.wai-theme-enabled .main-header-menu .sub-menu .current-menu-ancestor > a,
+body.wai-theme-enabled .ast-builder-menu .sub-menu .current-menu-item > a,
+body.wai-theme-enabled .site-header .sub-menu .current-menu-item > a,
+body.wai-theme-enabled .site-footer .sub-menu .current-menu-item > a {
+    color:var(--wai-header-link-hover) !important;
+}
+
+/* Theme typography / links */
+body.wai-theme-enabled h1,
+body.wai-theme-enabled h2,
+body.wai-theme-enabled h3,
+body.wai-theme-enabled h4,
+body.wai-theme-enabled h5,
+body.wai-theme-enabled h6 {
+    color:var(--wai-heading);
+}
+
+body.wai-theme-enabled a {
+    color:var(--wai-link);
+}
+body.wai-theme-enabled a:hover,
+body.wai-theme-enabled a:focus {
+    color:var(--wai-link-hover);
+}
+
+/* Header/footer links: independently controllable from Appearance. */
+body.wai-theme-enabled .site-header a,
+body.wai-theme-enabled .site-footer a,
+body.wai-theme-enabled .ast-builder-menu a,
+body.wai-theme-enabled .main-header-menu a,
+body.wai-theme-enabled .ast-mobile-popup-drawer a,
+body.wai-theme-enabled .ast-builder-menu-mobile a,
+body.wai-theme-enabled .ast-mobile-popup-inner a {
+    color:var(--wai-header-link) !important;
+}
+body.wai-theme-enabled .site-header a:hover,
+body.wai-theme-enabled .site-header a:focus,
+body.wai-theme-enabled .site-footer a:hover,
+body.wai-theme-enabled .site-footer a:focus,
+body.wai-theme-enabled .ast-builder-menu a:hover,
+body.wai-theme-enabled .ast-builder-menu a:focus,
+body.wai-theme-enabled .main-header-menu a:hover,
+body.wai-theme-enabled .main-header-menu a:focus,
+body.wai-theme-enabled .ast-mobile-popup-drawer a:hover,
+body.wai-theme-enabled .ast-mobile-popup-drawer a:focus,
+body.wai-theme-enabled .ast-builder-menu-mobile a:hover,
+body.wai-theme-enabled .ast-builder-menu-mobile a:focus,
+body.wai-theme-enabled .ast-mobile-popup-inner a:hover,
+body.wai-theme-enabled .ast-mobile-popup-inner a:focus {
+    color:var(--wai-header-link-hover) !important;
+}
+body.wai-theme-enabled .site-header .current-menu-item > a,
+body.wai-theme-enabled .site-header .current-menu-ancestor > a,
+body.wai-theme-enabled .site-footer .current-menu-item > a,
+body.wai-theme-enabled .ast-builder-menu .current-menu-item > a {
+    color:var(--wai-header-link-hover) !important;
+}
+
+/* Form labels on normal WordPress/contact pages. */
+body.wai-theme-enabled form label,
+body.wai-theme-enabled .wpforms-field-label,
+body.wai-theme-enabled .wpforms-field-sublabel,
+body.wai-theme-enabled .wpcf7-form label,
+body.wai-theme-enabled .gform-field-label,
+body.wai-theme-enabled .nf-form-label label {
+    color:var(--wai-form-label) !important;
+}
+
+/* Astra's palette-driven components */
+body.wai-theme-enabled .ast-button,
+body.wai-theme-enabled .button,
+body.wai-theme-enabled button,
+body.wai-theme-enabled input[type="submit"],
+body.wai-theme-enabled input[type="button"] {
+    border-color:var(--wai-accent) !important;
+}
+
+body.wai-theme-enabled input:not([type="submit"]):not([type="button"]):not([type="checkbox"]):not([type="radio"]),
+body.wai-theme-enabled select,
+body.wai-theme-enabled textarea {
+    background-color:var(--wai-input-bg) !important;
+    color:var(--wai-input-text) !important;
+    border-color:var(--wai-border) !important;
+}
+body.wai-theme-enabled input::placeholder,
+body.wai-theme-enabled textarea::placeholder {
+    color:var(--wai-text-muted) !important;
+    opacity:1;
+}
+
+/* Mobile menus / off-canvas Astra menu */
+body.wai-theme-enabled .ast-mobile-header-wrap,
+body.wai-theme-enabled .ast-mobile-popup-drawer,
+body.wai-theme-enabled .ast-mobile-popup-inner,
+body.wai-theme-enabled .ast-mobile-popup-content,
+body.wai-theme-enabled .ast-builder-menu-mobile,
+body.wai-theme-enabled .ast-mobile-menu-trigger-minimal {
+    background-color:var(--wai-header) !important;
+    color:var(--wai-header-text) !important;
+}
+body.wai-theme-enabled .ast-mobile-popup-drawer a,
+body.wai-theme-enabled .ast-builder-menu-mobile a,
+body.wai-theme-enabled .ast-mobile-popup-inner a {
+    color:var(--wai-header-text) !important;
+}
+
+/* Global theme toggle created outside the home when needed. */
+.wai-global-theme-toggle {
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    z-index:99990;
+    width:42px;
+    height:42px;
+    border:1px solid var(--wai-border) !important;
+    border-radius:50%;
+    background:var(--wai-surface2) !important;
+    color:var(--wai-text) !important;
+    box-shadow:0 4px 18px rgba(0,0,0,.18);
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:0;
+    line-height:1;
+}
+.wai-global-theme-toggle:hover { background:var(--wai-accent) !important; color:#fff !important; }
+@media (max-width:680px) {
+    .wai-global-theme-toggle { right:12px; bottom:12px; width:40px; height:40px; }
+}
+
+/* Plugin index/single components use the same semantic palette. */
+.wai-index,
+.wai-single-page {
+    color:var(--wai-text);
+}
+.wai-single-page { background:var(--wai-bg); }
+.wai-meta-table th,
+.wai-alt-title,
+.wai-native-title,
+.wai-card__meta,
+.wai-card__genres,
+.wai-empty { color:var(--wai-text-muted); }
+.wai-meta-table th,
+.wai-meta-table td,
+.wai-franchise,
+.wai-franchise-item { border-color:var(--wai-border); }
+.wai-editorial { color:var(--wai-text); }
+.wai-tag { background:var(--wai-surface2); color:var(--wai-text); }
+.wai-card { background:var(--wai-surface); color:var(--wai-text); }
+.wai-card__thumb { background:var(--wai-surface2); }
+.wai-filters input[type="text"],
+.wai-filters select { background:var(--wai-input-bg); color:var(--wai-input-text); border-color:var(--wai-border); }
+.wai-filters a,
+.wai-franchise-item { color:var(--wai-link); }
+
+/* ═══════════════════════════════════════════════════════
+   Blog, related posts, comentarios y widgets
+   ═══════════════════════════════════════════════════════ */
+
+body.wai-theme-enabled .site-content,
+body.wai-theme-enabled .content-area,
+body.wai-theme-enabled .site-main,
+body.wai-theme-enabled .ast-container,
+body.wai-theme-enabled .ast-container-fluid {
+    background-color: var(--wai-bg);
+    color: var(--wai-text);
+}
+
+body.wai-theme-enabled article,
+body.wai-theme-enabled .post,
+body.wai-theme-enabled .hentry,
+body.wai-theme-enabled .ast-article-post,
+body.wai-theme-enabled .ast-separate-container .ast-article-post,
+body.wai-theme-enabled .ast-separate-container .ast-article-single {
+    background-color: var(--wai-surface);
+    color: var(--wai-text);
+    border-color: var(--wai-border);
+}
+
+body.wai-theme-enabled .entry-title,
+body.wai-theme-enabled .entry-title a,
+body.wai-theme-enabled .entry-content,
+body.wai-theme-enabled .entry-content p,
+body.wai-theme-enabled .entry-content li,
+body.wai-theme-enabled .entry-content blockquote {
+    color: var(--wai-text);
+}
+body.wai-theme-enabled .entry-content a {
+    color: var(--wai-link);
+}
+body.wai-theme-enabled .entry-content a:hover {
+    color: var(--wai-link-hover);
+}
+
+body.wai-theme-enabled .entry-meta,
+body.wai-theme-enabled .post-meta,
+body.wai-theme-enabled .posted-on,
+body.wai-theme-enabled .posted-on a,
+body.wai-theme-enabled .byline,
+body.wai-theme-enabled .byline a,
+body.wai-theme-enabled .cat-links a,
+body.wai-theme-enabled .tags-links a,
+body.wai-theme-enabled .comments-link a,
+body.wai-theme-enabled .author,
+body.wai-theme-enabled .date {
+    color: var(--wai-text-muted);
+}
+
+/* Related posts (todas las variantes más comunes) */
+body.wai-theme-enabled .related-posts,
+body.wai-theme-enabled .related-posts-wrapper,
+body.wai-theme-enabled .related.products,
+body.wai-theme-enabled .yarpp-related,
+body.wai-theme-enabled .yarpp-related-widget,
+body.wai-theme-enabled .jp-relatedposts,
+body.wai-theme-enabled .crp_related,
+body.wai-theme-enabled .crp_related_widget,
+body.wai-theme-enabled .rpwe-block,
+body.wai-theme-enabled .rpwe-block ul,
+body.wai-theme-enabled .rpwe-block li,
+body.wai-theme-enabled .related_post,
+body.wai-theme-enabled .related-posts article,
+body.wai-theme-enabled .related-posts .entry-title,
+body.wai-theme-enabled .related-posts .entry-title a {
+    background-color: transparent;
+    color: var(--wai-text);
+    border-color: var(--wai-border);
+}
+
+body.wai-theme-enabled .related-posts h2,
+body.wai-theme-enabled .related-posts h3,
+body.wai-theme-enabled .related-posts h4,
+body.wai-theme-enabled .yarpp-related h3,
+body.wai-theme-enabled .jp-relatedposts h3 {
+    color: var(--wai-heading);
+    border-color: var(--wai-border);
+}
+
+body.wai-theme-enabled .related-posts a,
+body.wai-theme-enabled .yarpp-related a,
+body.wai-theme-enabled .jp-relatedposts a,
+body.wai-theme-enabled .crp_related a,
+body.wai-theme-enabled .rpwe-block a {
+    color: var(--wai-link);
+}
+body.wai-theme-enabled .related-posts a:hover,
+body.wai-theme-enabled .yarpp-related a:hover,
+body.wai-theme-enabled .jp-relatedposts a:hover {
+    color: var(--wai-link-hover);
+}
+
+body.wai-theme-enabled .comments-area,
+body.wai-theme-enabled .comment-list,
+body.wai-theme-enabled .comment-body,
+body.wai-theme-enabled .comment-content,
+body.wai-theme-enabled .comment-form,
+body.wai-theme-enabled .comment-respond {
+    background-color: var(--wai-surface);
+    color: var(--wai-text);
+    border-color: var(--wai-border);
+}
+body.wai-theme-enabled .comment-meta,
+body.wai-theme-enabled .comment-metadata a {
+    color: var(--wai-text-muted);
+}
+
+body.wai-theme-enabled .widget-area,
+body.wai-theme-enabled .sidebar,
+body.wai-theme-enabled .secondary,
+body.wai-theme-enabled .widget {
+    background-color: var(--wai-surface);
+    color: var(--wai-text);
+}
+body.wai-theme-enabled .widget-title,
+body.wai-theme-enabled .widgettitle {
+    color: var(--wai-heading);
+}
+body.wai-theme-enabled .widget a {
+    color: var(--wai-link);
+}
+body.wai-theme-enabled .widget a:hover {
+    color: var(--wai-link-hover);
+}
+
+body.wai-theme-enabled .pagination,
+body.wai-theme-enabled .navigation.post-navigation,
+body.wai-theme-enabled .nav-links a {
+    color: var(--wai-text);
+    border-color: var(--wai-border);
+}
+body.wai-theme-enabled .nav-links .current {
+    background-color: var(--wai-accent);
+    color: var(--wai-header-text);
+}
+
+body.wai-theme-enabled .breadcrumb,
+body.wai-theme-enabled .breadcrumbs,
+body.wai-theme-enabled .ast-breadcrumbs {
+    color: var(--wai-text-muted);
+}
+body.wai-theme-enabled .breadcrumb a,
+body.wai-theme-enabled .breadcrumbs a {
+    color: var(--wai-link);
+}
+
+body.wai-theme-enabled .ast-separate-container,
+body.wai-theme-enabled .ast-plain-container,
+body.wai-theme-enabled .ast-page-builder-template {
+    background-color: var(--wai-bg);
+}
+body.wai-theme-enabled .ast-separate-container .ast-article-inner {
+    background-color: var(--wai-surface);
+}
+
+body.wai-theme-enabled :is(a, article, section, aside, header, footer, nav,
+                            .widget, .post, .hentry, input, select, textarea,
+                            .related-posts, .comment-body, .comment-respond) {
+    transition: background-color var(--wai-transition),
+                color var(--wai-transition),
+                border-color var(--wai-transition);
+}
+
+/* ═══════════════════════════════════════════════════════
+   Ajustes estructurales para Astra en singles
+   (migrados desde el Custom CSS del tema)
+   Se omite la página "Directorio" (post-643) porque ahí
+   SÍ queremos mostrar el featured image del hero.
+   ═══════════════════════════════════════════════════════ */
+
+body.wai-theme-enabled:not(.page-id-643) .ast-single-post-featured-section.post-thumb.ast-article-image-container--wide {
+    display: none;
+}
+body.wai-theme-enabled:not(.page-id-643) .ast-single-post-featured-section + article {
+    margin-top: -2em;
+}
+
+/* ═══════════════════════════════════════════════════════
+   HEADER ASTRA — secciones internas del builder
+   El logo y demás bloques del header tienen su propio fondo
+   definido en el Customizer de Astra, lo que rompe la
+   continuidad del color de la barra.
+   ═══════════════════════════════════════════════════════ */
+
+body.wai-theme-enabled .site-header .ast-primary-header-bar,
+body.wai-theme-enabled .site-header .ast-below-header-bar,
+body.wai-theme-enabled .site-header .ast-above-header-bar,
+body.wai-theme-enabled .site-header .ast-builder-grid-row,
+body.wai-theme-enabled .site-header .ast-builder-grid-row-container,
+body.wai-theme-enabled .site-header .ast-builder-layout-container,
+body.wai-theme-enabled .site-header .site-primary-header-wrap,
+body.wai-theme-enabled .site-header .site-below-header-wrap,
+body.wai-theme-enabled .site-header .site-above-header-wrap,
+body.wai-theme-enabled .site-header .ast-primary-header-bar-inner,
+body.wai-theme-enabled .site-header .ast-above-header-bar-inner,
+body.wai-theme-enabled .site-header .ast-below-header-bar-inner,
+body.wai-theme-enabled .site-header .site-header-primary-section-left,
+body.wai-theme-enabled .site-header .site-header-primary-section-center,
+body.wai-theme-enabled .site-header .site-header-primary-section-right,
+body.wai-theme-enabled .site-header .site-header-primary-section-left-inner,
+body.wai-theme-enabled .site-header .site-header-primary-section-center-inner,
+body.wai-theme-enabled .site-header .site-header-primary-section-right-inner,
+body.wai-theme-enabled .site-header .site-header-above-section-left,
+body.wai-theme-enabled .site-header .site-header-above-section-center,
+body.wai-theme-enabled .site-header .site-header-above-section-right,
+body.wai-theme-enabled .site-header .site-header-below-section-left,
+body.wai-theme-enabled .site-header .site-header-below-section-center,
+body.wai-theme-enabled .site-header .site-header-below-section-right,
+body.wai-theme-enabled .site-header .site-branding,
+body.wai-theme-enabled .site-header .ast-site-identity,
+body.wai-theme-enabled .site-header .site-identity,
+body.wai-theme-enabled .site-header .site-logo,
+body.wai-theme-enabled .site-header .custom-logo-link,
+body.wai-theme-enabled .site-header .ast-container {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border-color: transparent !important;
+}
+
+/* Título y descripción del sitio heredan el esquema del header */
+body.wai-theme-enabled .site-header .site-title,
+body.wai-theme-enabled .site-header .site-title a {
+    color: var(--wai-header-text) !important;
+}
+body.wai-theme-enabled .site-header .site-title a:hover,
+body.wai-theme-enabled .site-header .site-title a:focus {
+    color: var(--wai-header-link-hover) !important;
+}
+body.wai-theme-enabled .site-header .site-description {
+    color: var(--wai-header-text) !important;
+    opacity: .75;
+}
+
+/* ═══════════════════════════════════════════════════════
+   FOOTER ASTRA — secciones internas del builder
+   Mismo problema que el header: el menú y el copyright
+   tienen su propio fondo del Customizer y quedan como
+   cajas blancas sobre el azul del footer.
+   ═══════════════════════════════════════════════════════ */
+
+body.wai-theme-enabled .site-footer .ast-footer-overlay,
+body.wai-theme-enabled .site-footer .ast-small-footer,
+body.wai-theme-enabled .site-footer .ast-small-footer-wrap,
+body.wai-theme-enabled .site-footer .ast-small-footer-section,
+body.wai-theme-enabled .site-footer .ast-small-footer-section-1,
+body.wai-theme-enabled .site-footer .ast-small-footer-section-2,
+body.wai-theme-enabled .site-footer .ast-footer-copyright,
+body.wai-theme-enabled .site-footer .ast-footer-widget-area,
+body.wai-theme-enabled .site-footer .ast-footer-widget-area-wrap,
+body.wai-theme-enabled .site-footer .ast-builder-grid-row,
+body.wai-theme-enabled .site-footer .ast-builder-grid-row-container,
+body.wai-theme-enabled .site-footer .ast-builder-layout-container,
+body.wai-theme-enabled .site-footer .footer-widget-area,
+body.wai-theme-enabled .site-footer .footer-widget-area-wrap,
+body.wai-theme-enabled .site-footer .footer-widget-area-inner,
+body.wai-theme-enabled .site-footer .site-footer-section,
+body.wai-theme-enabled .site-footer .site-footer-primary-section-1,
+body.wai-theme-enabled .site-footer .site-footer-primary-section-2,
+body.wai-theme-enabled .site-footer .site-footer-primary-section-3,
+body.wai-theme-enabled .site-footer .site-footer-primary-section-4,
+body.wai-theme-enabled .site-footer .site-footer-primary-section-5,
+body.wai-theme-enabled .site-footer .site-primary-footer-wrap,
+body.wai-theme-enabled .site-footer .site-below-footer-wrap,
+body.wai-theme-enabled .site-footer .site-above-footer-wrap,
+body.wai-theme-enabled .site-footer .ast-footer-menu,
+body.wai-theme-enabled .site-footer .footer-navigation,
+body.wai-theme-enabled .site-footer .ast-container,
+body.wai-theme-enabled .site-footer .ast-container-fluid {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border-color: transparent !important;
+    color: var(--wai-header-text) !important;
+}
+
+/* Menú del footer (footer builder widget #2) */
+body.wai-theme-enabled .site-footer .ast-builder-menu-1,
+body.wai-theme-enabled .site-footer .ast-builder-menu-2,
+body.wai-theme-enabled .site-footer .ast-builder-menu-3,
+body.wai-theme-enabled .site-footer .ast-builder-menu,
+body.wai-theme-enabled .site-footer .main-header-menu,
+body.wai-theme-enabled .site-footer .footer-menu,
+body.wai-theme-enabled .site-footer ul.menu,
+body.wai-theme-enabled .site-footer ul.sub-menu {
+    background-color: transparent !important;
+    color: var(--wai-header-text) !important;
+}
+
+body.wai-theme-enabled .site-footer .ast-builder-menu a,
+body.wai-theme-enabled .site-footer .main-header-menu a,
+body.wai-theme-enabled .site-footer .footer-menu a,
+body.wai-theme-enabled .site-footer ul.menu a,
+body.wai-theme-enabled .site-footer .menu-item > a {
+    background-color: transparent !important;
+    color: var(--wai-header-link) !important;
+}
+body.wai-theme-enabled .site-footer .ast-builder-menu a:hover,
+body.wai-theme-enabled .site-footer .ast-builder-menu a:focus,
+body.wai-theme-enabled .site-footer .main-header-menu a:hover,
+body.wai-theme-enabled .site-footer .main-header-menu a:focus,
+body.wai-theme-enabled .site-footer .footer-menu a:hover,
+body.wai-theme-enabled .site-footer .menu-item > a:hover {
+    color: var(--wai-header-link-hover) !important;
+}
+
+/* Copyright */
+body.wai-theme-enabled .site-footer .ast-footer-copyright,
+body.wai-theme-enabled .site-footer .ast-footer-copyright p,
+body.wai-theme-enabled .site-footer .ast-footer-copyright a {
+    color: var(--wai-header-text) !important;
+}
+body.wai-theme-enabled .site-footer .ast-footer-copyright a:hover {
+    color: var(--wai-header-link-hover) !important;
+}
+
+/* Redes sociales del footer */
+body.wai-theme-enabled .site-footer .ast-builder-social-element svg,
+body.wai-theme-enabled .site-footer .ast-builder-social-element .social-item-label {
+    fill: var(--wai-header-link);
+    color: var(--wai-header-link);
+}
+body.wai-theme-enabled .site-footer .ast-builder-social-element:hover svg {
+    fill: var(--wai-header-link-hover);
+}
+
+/* ═══════════════════════════════════════════════════════
+   ABOVE-FOOTER widget area (Astra)
+   Franja gris que aparece entre el contenido y el footer.
+   Se cubre con la misma paleta para no romper continuidad.
+   ═══════════════════════════════════════════════════════ */
+
+body.wai-theme-enabled .ast-above-footer-wrap,
+body.wai-theme-enabled .ast-above-footer-wrap .ast-container,
+body.wai-theme-enabled .ast-above-footer-wrap .ast-builder-grid-row,
+body.wai-theme-enabled .ast-above-footer-wrap .ast-builder-grid-row-container {
+    background-color: var(--wai-surface) !important;
+    color: var(--wai-text) !important;
+}
+body.wai-theme-enabled .ast-above-footer-wrap .widget,
+body.wai-theme-enabled .ast-above-footer-wrap .widget-title {
+    background-color: transparent !important;
+    color: var(--wai-heading) !important;
+}
+body.wai-theme-enabled .ast-above-footer-wrap a {
+    color: var(--wai-link);
+}
+body.wai-theme-enabled .ast-above-footer-wrap a:hover {
+    color: var(--wai-link-hover);
+}
+
+/* ═══════════════════════════════════════════════════════
+   ASTRA RELATED POSTS (feature nativo de Astra 3+/Pro)
+   ═══════════════════════════════════════════════════════ */
+
+body.wai-theme-enabled .ast-related-posts-wrapper,
+body.wai-theme-enabled .ast-related-posts-inner,
+body.wai-theme-enabled .ast-related-post,
+body.wai-theme-enabled .ast-related-post-content,
+body.wai-theme-enabled .ast-related-post-featured-section,
+body.wai-theme-enabled .ast-related-post-image,
+body.wai-theme-enabled .ast-related-post-content > * {
+    background-color: transparent;
+    border-color: var(--wai-border);
+}
+
+body.wai-theme-enabled .ast-related-posts-title,
+body.wai-theme-enabled .ast-related-posts-title a {
+    color: var(--wai-heading) !important;
+}
+
+body.wai-theme-enabled .ast-related-post-title,
+body.wai-theme-enabled .ast-related-post-title a,
+body.wai-theme-enabled .ast-related-post-title a:visited,
+body.wai-theme-enabled .ast-related-post-content h2,
+body.wai-theme-enabled .ast-related-post-content h3,
+body.wai-theme-enabled .ast-related-post-content h4,
+body.wai-theme-enabled .ast-related-post-content h5,
+body.wai-theme-enabled .ast-related-post-content h6,
+body.wai-theme-enabled .ast-related-post-content h2 a,
+body.wai-theme-enabled .ast-related-post-content h3 a,
+body.wai-theme-enabled .ast-related-post-content h4 a,
+body.wai-theme-enabled .ast-related-post-content h5 a,
+body.wai-theme-enabled .ast-related-post-content h6 a {
+    color: var(--wai-text) !important;
+}
+body.wai-theme-enabled .ast-related-post-title a:hover,
+body.wai-theme-enabled .ast-related-post-title a:focus,
+body.wai-theme-enabled .ast-related-post-content h2 a:hover,
+body.wai-theme-enabled .ast-related-post-content h3 a:hover,
+body.wai-theme-enabled .ast-related-post-content h4 a:hover,
+body.wai-theme-enabled .ast-related-post-content h5 a:hover,
+body.wai-theme-enabled .ast-related-post-content h6 a:hover {
+    color: var(--wai-link-hover) !important;
+}
+
+body.wai-theme-enabled .ast-related-post-meta,
+body.wai-theme-enabled .ast-related-post-meta a,
+body.wai-theme-enabled .ast-related-post-meta .cat-links,
+body.wai-theme-enabled .ast-related-post-meta .cat-links a,
+body.wai-theme-enabled .ast-related-post-meta .author,
+body.wai-theme-enabled .ast-related-post-meta .author a,
+body.wai-theme-enabled .ast-related-post-meta .posted-on,
+body.wai-theme-enabled .ast-related-post-meta .posted-on a,
+body.wai-theme-enabled .ast-related-post-meta .byline,
+body.wai-theme-enabled .ast-related-post-meta .byline a {
+    color: var(--wai-link) !important;
+}
+body.wai-theme-enabled .ast-related-post-meta a:hover,
+body.wai-theme-enabled .ast-related-post-meta .cat-links a:hover,
+body.wai-theme-enabled .ast-related-post-meta .author a:hover,
+body.wai-theme-enabled .ast-related-post-meta .byline a:hover {
+    color: var(--wai-link-hover) !important;
+}
+
+body.wai-theme-enabled .ast-related-post-excerpt,
+body.wai-theme-enabled .ast-related-post-excerpt p {
+    color: var(--wai-text) !important;
+}
+
+/* ═══════════════════════════════════════════════════════
+   MOBILE — Fixes específicos para dark mode
+   Cubre: header móvil de Astra, off-canvas drawer,
+   inputs iOS con autofill, safe-area para notch.
+   ═══════════════════════════════════════════════════════ */
+
+@media (max-width: 921px) {
+
+    /* ── Header móvil de Astra ───────────────────────────── */
+
+    /* Wrapper completo del header móvil (el bloque que envuelve
+       el logo y el icono hamburguesa). Astra lo pinta con blanco
+       por defecto, hay que forzarlo al color del header. */
+    body.wai-theme-enabled #ast-mobile-header,
+    body.wai-theme-enabled #ast-mobile-header .ast-mobile-header-wrap,
+    body.wai-theme-enabled #ast-mobile-header .ast-mobile-header-content,
+    body.wai-theme-enabled .site-header .ast-mobile-header-wrap,
+    body.wai-theme-enabled .site-header .ast-mobile-header-content,
+    body.wai-theme-enabled .ast-primary-header-bar.ast-mobile-header-wrap {
+        background-color: var(--wai-header) !important;
+        color: var(--wai-header-text) !important;
+        border-color: transparent !important;
+    }
+
+    /* ── Icono hamburguesa ──────────────────────────────── */
+
+    /* El botón que abre el menú — fondo transparente, icono
+       blanco. Antes tenía --wai-header y se veía como un bloque. */
+    body.wai-theme-enabled .ast-mobile-menu-trigger-minimal,
+    body.wai-theme-enabled .ast-mobile-menu-trigger-fill,
+    body.wai-theme-enabled .main-header-menu-toggle,
+    body.wai-theme-enabled .ast-button-wrap .menu-toggle {
+        background-color: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    body.wai-theme-enabled .ast-mobile-menu-trigger-minimal svg,
+    body.wai-theme-enabled .ast-mobile-menu-trigger-minimal .ast-mobile-svg,
+    body.wai-theme-enabled .main-header-menu-toggle svg,
+    body.wai-theme-enabled .ast-button-wrap .menu-toggle svg,
+    body.wai-theme-enabled .main-header-menu-toggle .mobile-menu-toggle-icon,
+    body.wai-theme-enabled .ast-button-wrap .menu-toggle .mobile-menu-toggle-icon {
+        fill: var(--wai-header-text) !important;
+        color: var(--wai-header-text) !important;
+    }
+
+    body.wai-theme-enabled .ast-mobile-menu-trigger-minimal:hover svg,
+    body.wai-theme-enabled .main-header-menu-toggle:hover svg {
+        fill: var(--wai-header-link-hover) !important;
+    }
+
+    /* ── Off-canvas drawer (menú hamburguesa desplegado) ── */
+
+    /* El drawer se monta al final del <body>, fuera de .site-header.
+       Estos selectores lo alcanzan sin importar dónde esté. */
+    body.wai-theme-enabled .ast-mobile-popup-drawer,
+    body.wai-theme-enabled .ast-mobile-popup-drawer .ast-mobile-popup-inner,
+    body.wai-theme-enabled .ast-mobile-popup-drawer .ast-mobile-popup-content,
+    body.wai-theme-enabled .ast-mobile-popup-drawer .ast-mobile-popup-header,
+    body.wai-theme-enabled .ast-mobile-popup-drawer .ast-mobile-popup-footer,
+    body.wai-theme-enabled #ast-mobile-popup-wrap,
+    body.wai-theme-enabled #ast-mobile-popup-wrap .ast-mobile-popup-inner {
+        background-color: var(--wai-header) !important;
+        color: var(--wai-header-text) !important;
+    }
+
+    /* Overlay oscuro detrás del drawer */
+    body.wai-theme-enabled .ast-mobile-popup-overlay {
+        background-color: rgba(0, 0, 0, .55) !important;
+    }
+
+    /* Items del menú dentro del drawer */
+    body.wai-theme-enabled .ast-mobile-popup-drawer .main-header-menu,
+    body.wai-theme-enabled .ast-mobile-popup-drawer .ast-builder-menu-mobile,
+    body.wai-theme-enabled .ast-mobile-popup-drawer ul.menu {
+        background-color: transparent !important;
+    }
+
+    body.wai-theme-enabled .ast-mobile-popup-drawer .menu-item > a,
+    body.wai-theme-enabled .ast-mobile-popup-drawer .main-header-menu a,
+    body.wai-theme-enabled .ast-mobile-popup-drawer .ast-builder-menu-mobile a,
+    body.wai-theme-enabled .ast-builder-menu-mobile .menu-item > a {
+        background-color: transparent !important;
+        color: var(--wai-header-link) !important;
+        border-bottom-color: rgba(255, 255, 255, .08) !important;
+    }
+
+    body.wai-theme-enabled .ast-mobile-popup-drawer .menu-item > a:hover,
+    body.wai-theme-enabled .ast-mobile-popup-drawer .menu-item > a:focus,
+    body.wai-theme-enabled .ast-mobile-popup-drawer .current-menu-item > a,
+    body.wai-theme-enabled .ast-builder-menu-mobile .current-menu-item > a {
+        background-color: var(--wai-surface2) !important;
+        color: var(--wai-header-link-hover) !important;
+    }
+
+    /* Submenús expandidos dentro del drawer */
+    body.wai-theme-enabled .ast-mobile-popup-drawer .sub-menu,
+    body.wai-theme-enabled .ast-builder-menu-mobile .sub-menu {
+        background-color: var(--wai-surface2) !important;
+    }
+
+    body.wai-theme-enabled .ast-mobile-popup-drawer .sub-menu a,
+    body.wai-theme-enabled .ast-builder-menu-mobile .sub-menu a {
+        color: var(--wai-header-link) !important;
+    }
+
+    /* Botón de cerrar (X) del drawer */
+    body.wai-theme-enabled .ast-mobile-popup-drawer .ast-button-wrap,
+    body.wai-theme-enabled .ast-mobile-popup-drawer .menu-toggle {
+        background-color: transparent !important;
+    }
+
+    body.wai-theme-enabled .ast-mobile-popup-drawer .ast-button-wrap svg,
+    body.wai-theme-enabled .ast-mobile-popup-drawer .ast-mobile-svg,
+    body.wai-theme-enabled .ast-mobile-popup-drawer .dashicons-no-alt {
+        fill: var(--wai-header-text) !important;
+        color: var(--wai-header-text) !important;
+    }
+
+    /* ── Header y footer en mobile ──────────────────────── */
+
+    body.wai-theme-enabled .site-header,
+    body.wai-theme-enabled .site-footer {
+        background-color: var(--wai-header) !important;
+        color: var(--wai-header-text) !important;
+    }
+
+    /* Astra mobile a veces usa .ast-mobile-header-wrap como raíz
+       para paddings y bordes. Neutralizarlos. */
+    body.wai-theme-enabled .ast-mobile-header-wrap .ast-primary-header-bar,
+    body.wai-theme-enabled .ast-mobile-header-wrap .site-primary-header-wrap {
+        background-color: transparent !important;
+        border-color: transparent !important;
+    }
+
+    /* ── Featured section en mobile ─────────────────────── */
+
+    body.wai-theme-enabled .ast-single-post-featured-section,
+    body.wai-theme-enabled .ast-single-post-featured-section .post-thumb,
+    body.wai-theme-enabled .ast-single-post-featured-section img {
+        background-color: var(--wai-surface) !important;
+    }
+
+    /* ── Blog / cards en mobile ─────────────────────────── */
+
+    body.wai-theme-enabled .ast-article-post,
+    body.wai-theme-enabled .ast-article-single,
+    body.wai-theme-enabled article,
+    body.wai-theme-enabled .post,
+    body.wai-theme-enabled .hentry {
+        background-color: var(--wai-surface) !important;
+        color: var(--wai-text) !important;
+    }
+
+    /* ── Sidebar/related apilados en mobile ─────────────── */
+
+    body.wai-theme-enabled .widget-area,
+    body.wai-theme-enabled .ast-related-posts-wrapper,
+    body.wai-theme-enabled .ast-related-post,
+    body.wai-theme-enabled .ast-related-post-content {
+        background-color: var(--wai-surface) !important;
+        color: var(--wai-text) !important;
+    }
+
+    body.wai-theme-enabled .ast-related-post-title a,
+    body.wai-theme-enabled .ast-related-post-title,
+    body.wai-theme-enabled .ast-related-post-content h2,
+    body.wai-theme-enabled .ast-related-post-content h3,
+    body.wai-theme-enabled .ast-related-post-content h4 {
+        color: var(--wai-text) !important;
+    }
+
+    body.wai-theme-enabled .ast-related-post-meta,
+    body.wai-theme-enabled .ast-related-post-meta a,
+    body.wai-theme-enabled .ast-related-post-meta .cat-links a,
+    body.wai-theme-enabled .ast-related-post-meta .byline a {
+        color: var(--wai-link) !important;
+    }
+}
+
+/* ── iOS: inputs con autofill (Safari pinta amarillo por defecto) ── */
+
+body.wai-theme-enabled input:-webkit-autofill,
+body.wai-theme-enabled input:-webkit-autofill:hover,
+body.wai-theme-enabled input:-webkit-autofill:focus,
+body.wai-theme-enabled input:-webkit-autofill:active,
+body.wai-theme-enabled textarea:-webkit-autofill,
+body.wai-theme-enabled select:-webkit-autofill {
+    -webkit-text-fill-color: var(--wai-input-text) !important;
+    -webkit-box-shadow: 0 0 0 1000px var(--wai-input-bg) inset !important;
+    box-shadow: 0 0 0 1000px var(--wai-input-bg) inset !important;
+    transition: background-color 5000s ease-in-out 0s;
+    caret-color: var(--wai-input-text);
+}
+
+/* ── iOS: inputs con font-size <16px hacen zoom al tocarlos ── */
+
+@media (max-width: 921px) {
+    body.wai-theme-enabled input[type="text"],
+    body.wai-theme-enabled input[type="search"],
+    body.wai-theme-enabled input[type="email"],
+    body.wai-theme-enabled input[type="tel"],
+    body.wai-theme-enabled input[type="url"],
+    body.wai-theme-enabled input[type="password"],
+    body.wai-theme-enabled input[type="number"],
+    body.wai-theme-enabled select,
+    body.wai-theme-enabled textarea {
+        font-size: 16px !important;
+    }
+}
+
+/* ── Safe area para teléfonos con notch ── */
+
+@supports (padding: max(0px)) {
+    body.wai-theme-enabled .site-header,
+    body.wai-theme-enabled .site-footer,
+    body.wai-theme-enabled .ast-mobile-popup-drawer .ast-mobile-popup-inner {
+        padding-left: max(0px, env(safe-area-inset-left));
+        padding-right: max(0px, env(safe-area-inset-right));
+    }
+
+    body.wai-theme-enabled .ast-mobile-popup-drawer .ast-mobile-popup-inner {
+        padding-top: max(0px, env(safe-area-inset-top));
+        padding-bottom: max(0px, env(safe-area-inset-bottom));
+    }
+}
+
+/* ═══════════════════════════════════════════════════════
+   MOBILE — Fixes específicos para Astra
+   Astra en mobile cambia el DOM (menú inline, no off-canvas)
+   y usa las clases del Customizer de forma agresiva.
+   Estos selectores aplican con máxima prioridad.
+   ═══════════════════════════════════════════════════════ */
+
+@media (max-width: 921px) {
+
+    /* ── 1. Inputs ─────────────────────────────────────── */
+
+    body.wai-theme-enabled input,
+    body.wai-theme-enabled input[type="search"],
+    body.wai-theme-enabled input[type="text"],
+    body.wai-theme-enabled input[type="email"],
+    body.wai-theme-enabled input[type="url"],
+    body.wai-theme-enabled input[type="tel"],
+    body.wai-theme-enabled input[type="number"],
+    body.wai-theme-enabled input[type="password"],
+    body.wai-theme-enabled textarea,
+    body.wai-theme-enabled select {
+        -webkit-appearance: none !important;
+        appearance: none !important;
+        background-color: var(--wai-input-bg) !important;
+        color: var(--wai-input-text) !important;
+        border-color: var(--wai-border) !important;
+    }
+    body.wai-theme-enabled input::placeholder,
+    body.wai-theme-enabled textarea::placeholder {
+        color: var(--wai-text-muted) !important;
+        opacity: 1 !important;
+    }
+    body.wai-theme-enabled .wai-home-search input {
+        background-color: var(--wai-surface2) !important;
+        color: var(--wai-text) !important;
+    }
+
+    /* ── 2. Header móvil ───────────────────────────────── */
+
+    body.wai-theme-enabled #ast-mobile-header,
+    body.wai-theme-enabled #ast-mobile-header *,
+    body.wai-theme-enabled #ast-mobile-header .ast-mobile-header-wrap,
+    body.wai-theme-enabled #ast-mobile-header .ast-mobile-header-content,
+    body.wai-theme-enabled #ast-mobile-header .ast-primary-header-bar,
+    body.wai-theme-enabled #ast-mobile-header .ast-builder-grid-row,
+    body.wai-theme-enabled #ast-mobile-header .ast-builder-grid-row-container,
+    body.wai-theme-enabled #ast-mobile-header .ast-builder-layout-container,
+    body.wai-theme-enabled .site-header,
+    body.wai-theme-enabled .site-header .ast-mobile-header-wrap,
+    body.wai-theme-enabled .site-header .ast-mobile-header-content,
+    body.wai-theme-enabled .site-header .ast-primary-header-bar,
+    body.wai-theme-enabled .site-header .site-primary-header-wrap,
+    body.wai-theme-enabled .site-header .ast-builder-grid-row,
+    body.wai-theme-enabled .site-header .ast-builder-grid-row-container,
+    body.wai-theme-enabled .site-header .ast-builder-layout-container,
+    body.wai-theme-enabled .site-header .ast-container,
+    body.wai-theme-enabled .site-header .site-header-primary-section-left,
+    body.wai-theme-enabled .site-header .site-header-primary-section-center,
+    body.wai-theme-enabled .site-header .site-header-primary-section-right {
+        background-color: var(--wai-header) !important;
+        color: var(--wai-header-text) !important;
+        border-color: transparent !important;
+    }
+
+    body.wai-theme-enabled #ast-mobile-header a,
+    body.wai-theme-enabled .site-header a {
+        color: var(--wai-header-link) !important;
+    }
+
+    body.wai-theme-enabled #ast-mobile-header .site-title,
+    body.wai-theme-enabled #ast-mobile-header .site-title a,
+    body.wai-theme-enabled .site-header .site-title,
+    body.wai-theme-enabled .site-header .site-title a {
+        color: var(--wai-header-text) !important;
+    }
+    body.wai-theme-enabled #ast-mobile-header .site-description,
+    body.wai-theme-enabled .site-header .site-description {
+        color: var(--wai-header-text) !important;
+        opacity: .75 !important;
+    }
+
+    /* ── 3. Icono hamburguesa / cerrar ────────────────── */
+
+    body.wai-theme-enabled .ast-mobile-menu-trigger-minimal,
+    body.wai-theme-enabled .ast-mobile-menu-trigger-fill,
+    body.wai-theme-enabled .main-header-menu-toggle,
+    body.wai-theme-enabled .ast-button-wrap .menu-toggle,
+    body.wai-theme-enabled .ast-mobile-menu-buttons,
+    body.wai-theme-enabled .ast-mobile-menu-buttons .menu-toggle {
+        background-color: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    body.wai-theme-enabled .main-header-menu-toggle svg,
+    body.wai-theme-enabled .menu-toggle svg,
+    body.wai-theme-enabled .menu-toggle .mobile-menu-toggle-icon,
+    body.wai-theme-enabled .ast-button-wrap .menu-toggle svg,
+    body.wai-theme-enabled .ast-mobile-svg {
+        fill: var(--wai-header-text) !important;
+        color: var(--wai-header-text) !important;
+    }
+
+    /* ── 4. MENÚ MÓVIL — el fix crítico ──────────────── */
+    /*
+     * Astra mobile (dropdown inline) aplica fondos del Customizer
+     * a CADA <li> y <a> del menú, alternando. Los forzamos TODOS
+     * a transparente con la paleta del plugin.
+     * Los selectores cubren: dropdown inline, off-canvas drawer,
+     * y submenús expandidos — sin importar la variante de Astra.
+     */
+
+    /* Contenedores del menú (dropdown y drawer) */
+    body.wai-theme-enabled .main-header-menu,
+    body.wai-theme-enabled ul.main-header-menu,
+    body.wai-theme-enabled .main-header-menu > li,
+    body.wai-theme-enabled ul.main-header-menu > li,
+    body.wai-theme-enabled .main-header-menu li,
+    body.wai-theme-enabled ul.main-header-menu li,
+    body.wai-theme-enabled .ast-mobile-popup-drawer,
+    body.wai-theme-enabled .ast-mobile-popup-drawer .ast-mobile-popup-inner,
+    body.wai-theme-enabled .ast-mobile-popup-drawer .ast-mobile-popup-content,
+    body.wai-theme-enabled .ast-mobile-popup-drawer .ast-mobile-popup-header,
+    body.wai-theme-enabled .ast-mobile-popup-drawer .ast-mobile-popup-footer,
+    body.wai-theme-enabled #ast-mobile-popup-wrap,
+    body.wai-theme-enabled #ast-mobile-popup-wrap .ast-mobile-popup-inner,
+    body.wai-theme-enabled .ast-mobile-popup-drawer .main-header-menu,
+    body.wai-theme-enabled .ast-mobile-popup-drawer .ast-builder-menu-mobile,
+    body.wai-theme-enabled .ast-mobile-popup-drawer ul.menu,
+    body.wai-theme-enabled .ast-builder-menu-mobile,
+    body.wai-theme-enabled .ast-builder-menu-mobile ul.menu,
+    body.wai-theme-enabled .ast-builder-menu-mobile ul.menu > li,
+    body.wai-theme-enabled .ast-builder-menu-mobile ul.menu > li > a {
+        background-color: var(--wai-header) !important;
+        color: var(--wai-header-text) !important;
+        border-color: transparent !important;
+    }
+
+    /* Todos los <li> y <a> del menú móvil, sin importar estado */
+    body.wai-theme-enabled .main-header-menu li.menu-item,
+    body.wai-theme-enabled .main-header-menu li.menu-item > a,
+    body.wai-theme-enabled ul.main-header-menu li.menu-item,
+    body.wai-theme-enabled ul.main-header-menu li.menu-item > a,
+    body.wai-theme-enabled .ast-mobile-popup-drawer li.menu-item,
+    body.wai-theme-enabled .ast-mobile-popup-drawer li.menu-item > a,
+    body.wai-theme-enabled .ast-builder-menu-mobile li.menu-item,
+    body.wai-theme-enabled .ast-builder-menu-mobile li.menu-item > a,
+    body.wai-theme-enabled .site-header .main-header-menu li.menu-item,
+    body.wai-theme-enabled .site-header .main-header-menu li.menu-item > a {
+        background-color: transparent !important;
+        color: var(--wai-header-text) !important;
+        text-decoration: none !important;
+    }
+
+    /* Reset de backgrounds inline de Astra (usa style="") */
+    body.wai-theme-enabled .main-header-menu li.menu-item[style],
+    body.wai-theme-enabled .main-header-menu li.menu-item > a[style] {
+        background-color: transparent !important;
+        background-image: none !important;
+    }
+
+    /* Item actual: fondo sutil para diferenciarlo */
+    body.wai-theme-enabled .main-header-menu li.current-menu-item,
+    body.wai-theme-enabled .main-header-menu li.current-menu-item > a,
+    body.wai-theme-enabled .main-header-menu li.current-menu-ancestor,
+    body.wai-theme-enabled .main-header-menu li.current-menu-ancestor > a,
+    body.wai-theme-enabled .main-header-menu li.current_page_item,
+    body.wai-theme-enabled .main-header-menu li.current_page_item > a,
+    body.wai-theme-enabled .ast-mobile-popup-drawer li.current-menu-item,
+    body.wai-theme-enabled .ast-mobile-popup-drawer li.current-menu-item > a,
+    body.wai-theme-enabled .ast-builder-menu-mobile li.current-menu-item,
+    body.wai-theme-enabled .ast-builder-menu-mobile li.current-menu-item > a {
+        background-color: var(--wai-surface2) !important;
+        color: var(--wai-header-link-hover) !important;
+    }
+
+    /* Hover / focus */
+    body.wai-theme-enabled .main-header-menu li.menu-item > a:hover,
+    body.wai-theme-enabled .main-header-menu li.menu-item > a:focus,
+    body.wai-theme-enabled .ast-mobile-popup-drawer li.menu-item > a:hover,
+    body.wai-theme-enabled .ast-mobile-popup-drawer li.menu-item > a:focus,
+    body.wai-theme-enabled .ast-builder-menu-mobile li.menu-item > a:hover,
+    body.wai-theme-enabled .ast-builder-menu-mobile li.menu-item > a:focus {
+        background-color: var(--wai-surface2) !important;
+        color: var(--wai-header-link-hover) !important;
+    }
+
+    /* Submenús */
+    body.wai-theme-enabled .main-header-menu .sub-menu,
+    body.wai-theme-enabled .main-header-menu .sub-menu li,
+    body.wai-theme-enabled .ast-mobile-popup-drawer .sub-menu,
+    body.wai-theme-enabled .ast-mobile-popup-drawer .sub-menu li,
+    body.wai-theme-enabled .ast-builder-menu-mobile .sub-menu,
+    body.wai-theme-enabled .ast-builder-menu-mobile .sub-menu li {
+        background-color: var(--wai-surface2) !important;
+    }
+    body.wai-theme-enabled .main-header-menu .sub-menu a,
+    body.wai-theme-enabled .ast-mobile-popup-drawer .sub-menu a,
+    body.wai-theme-enabled .ast-builder-menu-mobile .sub-menu a {
+        color: var(--wai-header-link) !important;
+    }
+
+    /* Overlay */
+    body.wai-theme-enabled .ast-mobile-popup-overlay,
+    body.wai-theme-enabled .ast-mobile-menu-overlay {
+        background-color: rgba(0, 0, 0, .55) !important;
+    }
+
+    /* ── 5. Botones del plugin (hero, cards) ─────────── */
+
+    /* "Ver Ficha" — texto debe contrastar con el fondo rojo */
+    body.wai-theme-enabled .wai-btn,
+    body.wai-theme-enabled .wai-btn--primary,
+    body.wai-theme-enabled .wai-btn--secondary {
+        color: var(--wai-header-text, #fff) !important;
+    }
+    body.wai-theme-enabled .wai-btn--primary {
+        background-color: var(--wai-accent) !important;
+        color: #ffffff !important;
+    }
+    body.wai-theme-enabled .wai-btn--primary:hover {
+        background-color: var(--wai-accent-h) !important;
+        color: #ffffff !important;
+    }
+    body.wai-theme-enabled .wai-btn--secondary {
+        background-color: rgba(255, 255, 255, .12) !important;
+        color: var(--wai-text) !important;
+        border-color: rgba(255, 255, 255, .2) !important;
+    }
+    body.wai-theme-enabled .wai-btn--secondary:hover {
+        background-color: rgba(255, 255, 255, .2) !important;
+        color: var(--wai-text) !important;
+    }
+
+    /* Botón "Filtrar" del home y "Ver todo" */
+    body.wai-theme-enabled .wai-filters button {
+        background-color: var(--wai-accent) !important;
+        color: #ffffff !important;
+    }
+
+    /* ── 6. Widgets (blog, sidebar) ──────────────────── */
+
+    body.wai-theme-enabled .widget-area,
+    body.wai-theme-enabled .sidebar,
+    body.wai-theme-enabled .secondary {
+        background-color: transparent !important;
+    }
+
+    body.wai-theme-enabled .widget-area .widget,
+    body.wai-theme-enabled .sidebar .widget,
+    body.wai-theme-enabled .secondary .widget,
+    body.wai-theme-enabled aside.widget,
+    body.wai-theme-enabled .widget_block {
+        background-color: var(--wai-surface) !important;
+        color: var(--wai-text) !important;
+        border-color: var(--wai-border) !important;
+    }
+
+    /* Bloques Gutenberg internos de los widgets */
+    body.wai-theme-enabled .widget .wp-block-group,
+    body.wai-theme-enabled .widget .wp-block-group__inner-container,
+    body.wai-theme-enabled .widget .wp-block-columns,
+    body.wai-theme-enabled .widget .wp-block-column,
+    body.wai-theme-enabled .widget .wp-block-cover,
+    body.wai-theme-enabled .widget .wp-block-cover__inner-container,
+    body.wai-theme-enabled .widget .wp-block-latest-posts,
+    body.wai-theme-enabled .widget .wp-block-latest-posts li,
+    body.wai-theme-enabled .widget .wp-block-latest-comments,
+    body.wai-theme-enabled .widget .wp-block-latest-comments li,
+    body.wai-theme-enabled .widget .wp-block-categories,
+    body.wai-theme-enabled .widget .wp-block-categories li,
+    body.wai-theme-enabled .widget .wp-block-archives,
+    body.wai-theme-enabled .widget .wp-block-archives li {
+        background-color: transparent !important;
+        color: var(--wai-text) !important;
+    }
+
+    body.wai-theme-enabled .widget-title,
+    body.wai-theme-enabled .widgettitle,
+    body.wai-theme-enabled .widget h2,
+    body.wai-theme-enabled .widget h3,
+    body.wai-theme-enabled .wp-block-heading {
+        color: var(--wai-heading) !important;
+    }
+
+    body.wai-theme-enabled .widget a,
+    body.wai-theme-enabled .widget .wp-block-latest-posts a,
+    body.wai-theme-enabled .widget .wp-block-latest-comments a,
+    body.wai-theme-enabled .widget .wp-block-categories a,
+    body.wai-theme-enabled .widget .wp-block-archives a {
+        color: var(--wai-link) !important;
+    }
+    body.wai-theme-enabled .widget a:hover {
+        color: var(--wai-link-hover) !important;
+    }
+
+    /* ── 7. Astra blog archive cards ─────────────────── */
+
+    body.wai-theme-enabled .ast-article-post,
+    body.wai-theme-enabled .ast-article-single,
+    body.wai-theme-enabled .ast-separate-container .ast-article-post,
+    body.wai-theme-enabled .ast-separate-container .ast-article-single,
+    body.wai-theme-enabled .ast-separate-container .ast-article-inner,
+    body.wai-theme-enabled .blog-layout-1,
+    body.wai-theme-enabled .blog-post {
+        background-color: var(--wai-surface) !important;
+        color: var(--wai-text) !important;
+        border-color: var(--wai-border) !important;
+    }
+
+    body.wai-theme-enabled .ast-article-post .entry-header,
+    body.wai-theme-enabled .ast-article-post .entry-content,
+    body.wai-theme-enabled .ast-article-post .entry-content *,
+    body.wai-theme-enabled .ast-article-post .ast-excerpt-container,
+    body.wai-theme-enabled .ast-article-post .ast-blog-single-element {
+        background-color: transparent !important;
+        color: var(--wai-text) !important;
+    }
+
+    body.wai-theme-enabled .ast-article-post .entry-title,
+    body.wai-theme-enabled .ast-article-post .entry-title a,
+    body.wai-theme-enabled .ast-article-post h1,
+    body.wai-theme-enabled .ast-article-post h2,
+    body.wai-theme-enabled .ast-article-post h3,
+    body.wai-theme-enabled .ast-article-post h4 {
+        color: var(--wai-text) !important;
+    }
+    body.wai-theme-enabled .ast-article-post .entry-title a:hover {
+        color: var(--wai-link-hover) !important;
+    }
+
+    body.wai-theme-enabled .ast-article-post .entry-meta,
+    body.wai-theme-enabled .ast-article-post .entry-meta a,
+    body.wai-theme-enabled .ast-article-post .cat-links a,
+    body.wai-theme-enabled .ast-article-post .posted-on a,
+    body.wai-theme-enabled .ast-article-post .byline a {
+        color: var(--wai-link) !important;
+    }
+
+    /* ── 8. Related posts ─────────────────────────────── */
+
+    body.wai-theme-enabled .ast-related-posts-wrapper,
+    body.wai-theme-enabled .ast-related-posts-inner,
+    body.wai-theme-enabled .ast-related-post,
+    body.wai-theme-enabled .ast-related-post-content {
+        background-color: var(--wai-surface) !important;
+        color: var(--wai-text) !important;
+    }
+    body.wai-theme-enabled .ast-related-post-title a,
+    body.wai-theme-enabled .ast-related-post-title,
+    body.wai-theme-enabled .ast-related-post-content h2,
+    body.wai-theme-enabled .ast-related-post-content h3,
+    body.wai-theme-enabled .ast-related-post-content h4 {
+        color: var(--wai-text) !important;
+    }
+    body.wai-theme-enabled .ast-related-post-meta,
+    body.wai-theme-enabled .ast-related-post-meta a {
+        color: var(--wai-link) !important;
+    }
+
+    /* ── 9. Comentarios ──────────────────────────────── */
+
+    body.wai-theme-enabled .comments-area,
+    body.wai-theme-enabled .comment-list,
+    body.wai-theme-enabled .comment-body,
+    body.wai-theme-enabled .comment-respond,
+    body.wai-theme-enabled .comment-form {
+        background-color: var(--wai-surface) !important;
+        color: var(--wai-text) !important;
+    }
+
+    /* ── 10. Bloques Gutenberg en el contenido ──────── */
+
+    body.wai-theme-enabled .entry-content .wp-block-cover,
+    body.wai-theme-enabled .entry-content .wp-block-cover__inner-container,
+    body.wai-theme-enabled .entry-content .wp-block-group,
+    body.wai-theme-enabled .entry-content .wp-block-media-text,
+    body.wai-theme-enabled .entry-content .wp-block-columns,
+    body.wai-theme-enabled .entry-content .wp-block-column {
+        background-color: transparent !important;
+        color: var(--wai-text) !important;
+    }
+
+    body.wai-theme-enabled .entry-content .wp-block-table table,
+    body.wai-theme-enabled .entry-content .wp-block-table th,
+    body.wai-theme-enabled .entry-content .wp-block-table td {
+        background-color: var(--wai-surface) !important;
+        color: var(--wai-text) !important;
+        border-color: var(--wai-border) !important;
+    }
+
+    body.wai-theme-enabled .entry-content blockquote {
+        background-color: var(--wai-surface2) !important;
+        color: var(--wai-text) !important;
+        border-left-color: var(--wai-accent) !important;
+    }
+
+    /* ── 11. Breadcrumbs y paginación ────────────────── */
+
+    body.wai-theme-enabled .ast-breadcrumbs,
+    body.wai-theme-enabled .breadcrumbs,
+    body.wai-theme-enabled .breadcrumb {
+        background-color: transparent !important;
+        color: var(--wai-text-muted) !important;
+    }
+
+    body.wai-theme-enabled .ast-pagination,
+    body.wai-theme-enabled .navigation.pagination,
+    body.wai-theme-enabled .ast-pagination .page-numbers {
+        background-color: transparent !important;
+        color: var(--wai-text) !important;
+    }
+    body.wai-theme-enabled .ast-pagination .page-numbers.current {
+        background-color: var(--wai-accent) !important;
+        color: #ffffff !important;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════
+   ARCHIVE PAGES (category / tag / date / author)
+   Astra usa clases .ast-archive-post y .blog-layout-* que
+   son distintas de las del blog home. Cubrimos ambos.
+   ═══════════════════════════════════════════════════════ */
+
+/* Tarjetas del archive */
+body.wai-theme-enabled .ast-archive-post,
+body.wai-theme-enabled .ast-archive-post .ast-article-inner,
+body.wai-theme-enabled .ast-archive-post .post-thumb,
+body.wai-theme-enabled .archive .ast-article-post,
+body.wai-theme-enabled .archive .ast-article-post .ast-article-inner,
+body.wai-theme-enabled .blog-layout-1,
+body.wai-theme-enabled .blog-layout-1 .ast-article-inner,
+body.wai-theme-enabled .blog-layout-2,
+body.wai-theme-enabled .blog-layout-2 .ast-article-inner,
+body.wai-theme-enabled .blog-layout-3,
+body.wai-theme-enabled .blog-layout-3 .ast-article-inner {
+    background-color: var(--wai-surface) !important;
+    color: var(--wai-text) !important;
+    border-color: var(--wai-border) !important;
+}
+
+/* Contenido interno del card */
+body.wai-theme-enabled .ast-archive-post .entry-header,
+body.wai-theme-enabled .ast-archive-post .entry-content,
+body.wai-theme-enabled .ast-archive-post .ast-excerpt-container,
+body.wai-theme-enabled .ast-archive-post .ast-blog-single-element,
+body.wai-theme-enabled .archive .entry-header,
+body.wai-theme-enabled .archive .entry-content {
+    background-color: transparent !important;
+    color: var(--wai-text) !important;
+}
+
+/* Título del post */
+body.wai-theme-enabled .ast-archive-post .entry-title,
+body.wai-theme-enabled .ast-archive-post .entry-title a,
+body.wai-theme-enabled .archive .entry-title,
+body.wai-theme-enabled .archive .entry-title a {
+    color: var(--wai-text) !important;
+}
+body.wai-theme-enabled .ast-archive-post .entry-title a:hover,
+body.wai-theme-enabled .archive .entry-title a:hover {
+    color: var(--wai-link-hover) !important;
+}
+
+/* Meta: categoría, autor, fecha — todos los elementos */
+body.wai-theme-enabled .ast-archive-post .entry-meta,
+body.wai-theme-enabled .ast-archive-post .entry-meta *,
+body.wai-theme-enabled .archive .entry-meta,
+body.wai-theme-enabled .archive .entry-meta *,
+body.wai-theme-enabled .ast-archive-post .cat-links,
+body.wai-theme-enabled .ast-archive-post .cat-links a,
+body.wai-theme-enabled .ast-archive-post .cat-links a:visited,
+body.wai-theme-enabled .ast-archive-post .posted-on,
+body.wai-theme-enabled .ast-archive-post .posted-on a,
+body.wai-theme-enabled .ast-archive-post .posted-on a:visited,
+body.wai-theme-enabled .ast-archive-post .byline,
+body.wai-theme-enabled .ast-archive-post .byline a,
+body.wai-theme-enabled .ast-archive-post .author,
+body.wai-theme-enabled .ast-archive-post .author a,
+body.wai-theme-enabled .ast-archive-post .posted-by,
+body.wai-theme-enabled .ast-archive-post .posted-by a,
+body.wai-theme-enabled .archive .cat-links a,
+body.wai-theme-enabled .archive .posted-on a,
+body.wai-theme-enabled .archive .byline a {
+    color: var(--wai-link) !important;
+    text-decoration-color: var(--wai-link) !important;
+}
+
+body.wai-theme-enabled .ast-archive-post .cat-links a:hover,
+body.wai-theme-enabled .ast-archive-post .posted-on a:hover,
+body.wai-theme-enabled .ast-archive-post .byline a:hover {
+    color: var(--wai-link-hover) !important;
+}
+
+/* Excerpt en archives */
+body.wai-theme-enabled .ast-archive-post .ast-excerpt-container,
+body.wai-theme-enabled .ast-archive-post .ast-excerpt-container *,
+body.wai-theme-enabled .archive .ast-excerpt-container,
+body.wai-theme-enabled .archive .ast-excerpt-container * {
+    color: var(--wai-text) !important;
+}
+
+/* Título de la página del archive ("Category: Anime", etc.) */
+body.wai-theme-enabled .ast-archive-description,
+body.wai-theme-enabled .ast-archive-description *,
+body.wai-theme-enabled .ast-term-description,
+body.wai-theme-enabled .page-title,
+body.wai-theme-enabled .ast-archive-title {
+    background-color: transparent !important;
+    color: var(--wai-heading) !important;
+}
+
+body.wai-theme-enabled .ast-archive-description p,
+body.wai-theme-enabled .ast-term-description p,
+body.wai-theme-enabled .taxonomy-description,
+body.wai-theme-enabled .taxonomy-description * {
+    color: var(--wai-text) !important;
+}
+
+/* Read more button */
+body.wai-theme-enabled .ast-archive-post .ast-blog-single-element a,
+body.wai-theme-enabled .ast-archive-post .read-more,
+body.wai-theme-enabled .ast-archive-post .more-link {
+    color: var(--wai-link) !important;
+}
+body.wai-theme-enabled .ast-archive-post .read-more:hover,
+body.wai-theme-enabled .ast-archive-post .more-link:hover {
+    color: var(--wai-link-hover) !important;
+}
+
+/* Forzar también el text-decoration de los links del meta */
+body.wai-theme-enabled .ast-archive-post .entry-meta a,
+body.wai-theme-enabled .archive .entry-meta a {
+    text-decoration: none;
+    border-bottom: none;
+}
+body.wai-theme-enabled .ast-archive-post .entry-meta a:hover,
+body.wai-theme-enabled .archive .entry-meta a:hover {
+    text-decoration: underline;
+}
+
+/* ═══════════════════════════════════════════════════════
+   ARCHIVE — Override final de seguridad
+   ═══════════════════════════════════════════════════════ */
+
+html[data-wai-theme] body.wai-theme-enabled .ast-article-post,
+html[data-wai-theme] body.wai-theme-enabled .ast-article-single,
+html[data-wai-theme] body.wai-theme-enabled .ast-archive-post,
+html[data-wai-theme] body.wai-theme-enabled .ast-separate-container .ast-article-post,
+html[data-wai-theme] body.wai-theme-enabled .ast-separate-container .ast-article-single,
+html[data-wai-theme] body.wai-theme-enabled .ast-separate-container .ast-article-inner,
+html[data-wai-theme] body.wai-theme-enabled .blog-layout-1,
+html[data-wai-theme] body.wai-theme-enabled .blog-post {
+    background-color: var(--wai-surface) !important;
+    background-image: none !important;
+    color: var(--wai-text) !important;
+}
+
+/* Títulos */
+html[data-wai-theme] body.wai-theme-enabled .ast-article-post .entry-title,
+html[data-wai-theme] body.wai-theme-enabled .ast-article-post .entry-title a,
+html[data-wai-theme] body.wai-theme-enabled .ast-article-single .entry-title,
+html[data-wai-theme] body.wai-theme-enabled .ast-article-single .entry-title a,
+html[data-wai-theme] body.wai-theme-enabled .ast-archive-post .entry-title a {
+    color: var(--wai-text) !important;
+}
+
+/* Meta, categorías, autor, fecha — todos */
+html[data-wai-theme] body.wai-theme-enabled .ast-article-post .entry-meta,
+html[data-wai-theme] body.wai-theme-enabled .ast-article-post .entry-meta *,
+html[data-wai-theme] body.wai-theme-enabled .ast-article-post .entry-meta a,
+html[data-wai-theme] body.wai-theme-enabled .ast-article-post .entry-meta a:visited,
+html[data-wai-theme] body.wai-theme-enabled .ast-article-post .cat-links a,
+html[data-wai-theme] body.wai-theme-enabled .ast-article-post .cat-links a:visited,
+html[data-wai-theme] body.wai-theme-enabled .ast-article-post .posted-on a,
+html[data-wai-theme] body.wai-theme-enabled .ast-article-post .posted-on a:visited,
+html[data-wai-theme] body.wai-theme-enabled .ast-article-post .byline a,
+html[data-wai-theme] body.wai-theme-enabled .ast-article-post .byline a:visited,
+html[data-wai-theme] body.wai-theme-enabled .ast-article-post .author a,
+html[data-wai-theme] body.wai-theme-enabled .ast-article-post .posted-by a,
+html[data-wai-theme] body.wai-theme-enabled .ast-archive-post .entry-meta *,
+html[data-wai-theme] body.wai-theme-enabled .ast-archive-post .entry-meta a,
+html[data-wai-theme] body.wai-theme-enabled .ast-archive-post .cat-links a,
+html[data-wai-theme] body.wai-theme-enabled .ast-archive-post .posted-on a,
+html[data-wai-theme] body.wai-theme-enabled .ast-archive-post .byline a {
+    color: var(--wai-link) !important;
+    text-decoration-color: var(--wai-link) !important;
+}
+
+/* Excerpt */
+html[data-wai-theme] body.wai-theme-enabled .ast-article-post .entry-content,
+html[data-wai-theme] body.wai-theme-enabled .ast-article-post .entry-content *,
+html[data-wai-theme] body.wai-theme-enabled .ast-article-post .ast-excerpt-container *,
+html[data-wai-theme] body.wai-theme-enabled .ast-archive-post .entry-content * {
+    color: var(--wai-text) !important;
+}

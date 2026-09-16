@@ -1,0 +1,256 @@
+/* WP Anime Index — global theme controller */
+html {
+    --wai-bg:#f8f8f8;
+    --wai-surface:#fff;
+    --wai-surface2:#f1f3f5;
+    --wai-header:#1f2532;
+    --wai-header-text:#fff;
+    --wai-header-link:#fff;
+    --wai-header-link-hover:#e63946;
+    --wai-form-label:#1a1a2e;
+    --wai-text:#1a1a2e;
+    --wai-text-muted:#66667a;
+    --wai-heading:#f50000;
+    --wai-link:#1f2532;
+    --wai-link-hover:#e63946;
+    --wai-accent:#e63946;
+    --wai-accent-h:#c1121f;
+    --wai-border:#e2e4e8;
+    --wai-input-bg:#fff;
+    --wai-input-text:#1a1a2e;
+    --wai-gold:#ffd700;
+    --wai-radius:10px;
+    --wai-shadow:0 4px 24px rgba(0,0,0,.12);
+    --wai-transition:.22s cubic-bezier(.4,0,.2,1);
+}
+
+html, body, body.wai-theme-enabled {
+    background-color:var(--wai-bg) !important;
+    color:var(--wai-text) !important;
+}
+
+body.wai-theme-enabled,
+body.wai-theme-enabled button,
+body.wai-theme-enabled input,
+body.wai-theme-enabled select,
+body.wai-theme-enabled textarea {
+    transition:background-color var(--wai-transition),color var(--wai-transition),border-color var(--wai-transition);
+}
+
+/* Astra / WordPress structural surfaces */
+body.wai-theme-enabled .site,
+body.wai-theme-enabled #page,
+body.wai-theme-enabled .site-content,
+body.wai-theme-enabled .site-main,
+body.wai-theme-enabled .content-area,
+body.wai-theme-enabled .widget-area,
+body.wai-theme-enabled .ast-container,
+body.wai-theme-enabled .ast-container-fluid {
+    color:var(--wai-text);
+}
+
+body.wai-theme-enabled .site-header,
+body.wai-theme-enabled .ast-primary-header-bar,
+body.wai-theme-enabled .ast-main-header-bar-alignment,
+body.wai-theme-enabled .main-header-bar,
+body.wai-theme-enabled .ast-builder-menu-1,
+body.wai-theme-enabled .ast-builder-menu-2 {
+    background-color:var(--wai-header) !important;
+    color:var(--wai-header-text) !important;
+}
+
+body.wai-theme-enabled .site-footer,
+body.wai-theme-enabled .ast-footer-overlay,
+body.wai-theme-enabled .ast-small-footer {
+    background-color:var(--wai-header) !important;
+    color:var(--wai-header-text) !important;
+}
+
+/* Header/footer dropdown submenus must use the same surface as the parent menu. */
+body.wai-theme-enabled .main-header-menu .sub-menu,
+body.wai-theme-enabled .ast-builder-menu .sub-menu,
+body.wai-theme-enabled .ast-builder-menu-1 .sub-menu,
+body.wai-theme-enabled .ast-builder-menu-2 .sub-menu,
+body.wai-theme-enabled .ast-desktop .main-header-menu .sub-menu,
+body.wai-theme-enabled .site-header .sub-menu,
+body.wai-theme-enabled .site-footer .sub-menu {
+    background-color:var(--wai-header) !important;
+    color:var(--wai-header-text) !important;
+}
+
+body.wai-theme-enabled .main-header-menu .sub-menu a,
+body.wai-theme-enabled .ast-builder-menu .sub-menu a,
+body.wai-theme-enabled .site-header .sub-menu a,
+body.wai-theme-enabled .site-footer .sub-menu a {
+    background-color:transparent !important;
+    color:var(--wai-header-link) !important;
+}
+
+body.wai-theme-enabled .main-header-menu .sub-menu a:hover,
+body.wai-theme-enabled .main-header-menu .sub-menu a:focus,
+body.wai-theme-enabled .ast-builder-menu .sub-menu a:hover,
+body.wai-theme-enabled .ast-builder-menu .sub-menu a:focus,
+body.wai-theme-enabled .site-header .sub-menu a:hover,
+body.wai-theme-enabled .site-header .sub-menu a:focus,
+body.wai-theme-enabled .site-footer .sub-menu a:hover,
+body.wai-theme-enabled .site-footer .sub-menu a:focus {
+    background-color:var(--wai-surface2) !important;
+    color:var(--wai-header-link-hover) !important;
+}
+
+body.wai-theme-enabled .main-header-menu .sub-menu .current-menu-item > a,
+body.wai-theme-enabled .main-header-menu .sub-menu .current-menu-ancestor > a,
+body.wai-theme-enabled .ast-builder-menu .sub-menu .current-menu-item > a,
+body.wai-theme-enabled .site-header .sub-menu .current-menu-item > a,
+body.wai-theme-enabled .site-footer .sub-menu .current-menu-item > a {
+    color:var(--wai-header-link-hover) !important;
+}
+
+/* Theme typography / links */
+body.wai-theme-enabled h1,
+body.wai-theme-enabled h2,
+body.wai-theme-enabled h3,
+body.wai-theme-enabled h4,
+body.wai-theme-enabled h5,
+body.wai-theme-enabled h6 {
+    color:var(--wai-heading);
+}
+
+body.wai-theme-enabled a {
+    color:var(--wai-link);
+}
+body.wai-theme-enabled a:hover,
+body.wai-theme-enabled a:focus {
+    color:var(--wai-link-hover);
+}
+
+/* Header/footer links: independently controllable from Appearance. */
+body.wai-theme-enabled .site-header a,
+body.wai-theme-enabled .site-footer a,
+body.wai-theme-enabled .ast-builder-menu a,
+body.wai-theme-enabled .main-header-menu a,
+body.wai-theme-enabled .ast-mobile-popup-drawer a,
+body.wai-theme-enabled .ast-builder-menu-mobile a,
+body.wai-theme-enabled .ast-mobile-popup-inner a {
+    color:var(--wai-header-link) !important;
+}
+body.wai-theme-enabled .site-header a:hover,
+body.wai-theme-enabled .site-header a:focus,
+body.wai-theme-enabled .site-footer a:hover,
+body.wai-theme-enabled .site-footer a:focus,
+body.wai-theme-enabled .ast-builder-menu a:hover,
+body.wai-theme-enabled .ast-builder-menu a:focus,
+body.wai-theme-enabled .main-header-menu a:hover,
+body.wai-theme-enabled .main-header-menu a:focus,
+body.wai-theme-enabled .ast-mobile-popup-drawer a:hover,
+body.wai-theme-enabled .ast-mobile-popup-drawer a:focus,
+body.wai-theme-enabled .ast-builder-menu-mobile a:hover,
+body.wai-theme-enabled .ast-builder-menu-mobile a:focus,
+body.wai-theme-enabled .ast-mobile-popup-inner a:hover,
+body.wai-theme-enabled .ast-mobile-popup-inner a:focus {
+    color:var(--wai-header-link-hover) !important;
+}
+body.wai-theme-enabled .site-header .current-menu-item > a,
+body.wai-theme-enabled .site-header .current-menu-ancestor > a,
+body.wai-theme-enabled .site-footer .current-menu-item > a,
+body.wai-theme-enabled .ast-builder-menu .current-menu-item > a {
+    color:var(--wai-header-link-hover) !important;
+}
+
+/* Form labels on normal WordPress/contact pages. */
+body.wai-theme-enabled form label,
+body.wai-theme-enabled .wpforms-field-label,
+body.wai-theme-enabled .wpforms-field-sublabel,
+body.wai-theme-enabled .wpcf7-form label,
+body.wai-theme-enabled .gform-field-label,
+body.wai-theme-enabled .nf-form-label label {
+    color:var(--wai-form-label) !important;
+}
+
+/* Astra's palette-driven components */
+body.wai-theme-enabled .ast-button,
+body.wai-theme-enabled .button,
+body.wai-theme-enabled button,
+body.wai-theme-enabled input[type="submit"],
+body.wai-theme-enabled input[type="button"] {
+    border-color:var(--wai-accent) !important;
+}
+
+body.wai-theme-enabled input:not([type="submit"]):not([type="button"]):not([type="checkbox"]):not([type="radio"]),
+body.wai-theme-enabled select,
+body.wai-theme-enabled textarea {
+    background-color:var(--wai-input-bg) !important;
+    color:var(--wai-input-text) !important;
+    border-color:var(--wai-border) !important;
+}
+body.wai-theme-enabled input::placeholder,
+body.wai-theme-enabled textarea::placeholder {
+    color:var(--wai-text-muted) !important;
+    opacity:1;
+}
+
+/* Mobile menus / off-canvas Astra menu */
+body.wai-theme-enabled .ast-mobile-header-wrap,
+body.wai-theme-enabled .ast-mobile-popup-drawer,
+body.wai-theme-enabled .ast-mobile-popup-inner,
+body.wai-theme-enabled .ast-mobile-popup-content,
+body.wai-theme-enabled .ast-builder-menu-mobile,
+body.wai-theme-enabled .ast-mobile-menu-trigger-minimal {
+    background-color:var(--wai-header) !important;
+    color:var(--wai-header-text) !important;
+}
+body.wai-theme-enabled .ast-mobile-popup-drawer a,
+body.wai-theme-enabled .ast-builder-menu-mobile a,
+body.wai-theme-enabled .ast-mobile-popup-inner a {
+    color:var(--wai-header-text) !important;
+}
+
+/* Global theme toggle created outside the home when needed. */
+.wai-global-theme-toggle {
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    z-index:99990;
+    width:42px;
+    height:42px;
+    border:1px solid var(--wai-border) !important;
+    border-radius:50%;
+    background:var(--wai-surface2) !important;
+    color:var(--wai-text) !important;
+    box-shadow:0 4px 18px rgba(0,0,0,.18);
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:0;
+    line-height:1;
+}
+.wai-global-theme-toggle:hover { background:var(--wai-accent) !important; color:#fff !important; }
+@media (max-width:680px) {
+    .wai-global-theme-toggle { right:12px; bottom:12px; width:40px; height:40px; }
+}
+
+/* Plugin index/single components use the same semantic palette. */
+.wai-index,
+.wai-single-page {
+    color:var(--wai-text);
+}
+.wai-single-page { background:var(--wai-bg); }
+.wai-meta-table th,
+.wai-alt-title,
+.wai-native-title,
+.wai-card__meta,
+.wai-card__genres,
+.wai-empty { color:var(--wai-text-muted); }
+.wai-meta-table th,
+.wai-meta-table td,
+.wai-franchise,
+.wai-franchise-item { border-color:var(--wai-border); }
+.wai-editorial { color:var(--wai-text); }
+.wai-tag { background:var(--wai-surface2); color:var(--wai-text); }
+.wai-card { background:var(--wai-surface); color:var(--wai-text); }
+.wai-card__thumb { background:var(--wai-surface2); }
+.wai-filters input[type="text"],
+.wai-filters select { background:var(--wai-input-bg); color:var(--wai-input-text); border-color:var(--wai-border); }
+.wai-filters a,
+.wai-franchise-item { color:var(--wai-link); }
